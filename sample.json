@@ -1,0 +1,21 @@
+{
+  "id": "be1c898d-bc5a-40e0-a230-bce205af335d",
+  "name": "Amigo Secreto",
+  "date": "25/12/2020",
+  "participants": [
+      {
+          "id": "34a59d40-d346-4a99-98b9-3cad52671ca6",
+          "name": "Gustavo",
+          "language": "pt-BR",
+          "contact_method": "EMAIL",
+          "contact": "gugakath@hotmail.com"
+      },
+      {
+          "id": "684aaa70-40eb-4edc-972f-1daa89d7ee6d",
+          "name": "ovatsug",
+          "language": "en",
+          "contact_method": "SMS",
+          "contact": "+5551997245578"
+      }
+  ]
+}

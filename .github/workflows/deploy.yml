@@ -1,0 +1,36 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ main ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.7
+    - name: Setup
+      run: |
+        sudo apt-get -yqq install libpq-dev
+        gem install bundler
+        bundle config set deployment 'true'
+        bundle config set without 'development test build'
+    - name: Install
+      run: bundle install
+    - name: Build Zip File
+      uses: montudor/action-zip@v0.1.0
+      with:
+        args: zip -qq -r secretsanta.zip ./ -x coverage
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: sa-east-1
+    - name: Deploy static site to S3 bucket
+      run: aws s3 sync ./secretsanta.zip s3://secretsanta-lambda-deploy-bucket/v0.1.0/ --delete
