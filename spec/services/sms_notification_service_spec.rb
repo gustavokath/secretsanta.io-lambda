@@ -21,7 +21,7 @@ RSpec.describe SMSNotificationService do
         let(:giver) { Participant.new(Faker::Name.name, 'en', 'SMS', '+5551997245578') }
 
         it 'should call SNS client' do
-          sns_client = Aws::SNS::Client.new
+          sns_client = Aws::SNS::Client.new(region: 'sa-east-1')
           allow(Aws::SNS::Client).to receive(:new).and_return(sns_client)
           allow(sns_client).to receive(:publish).and_return(nil)
           expect(sns_client).to receive(:publish).with(phone_number: '+5551997245578', message: anything)
