@@ -16,7 +16,7 @@ class SMSNotificationService < AbstractNotificationService
                                             receiver_name: receiver_name
                                           })
 
-    sns_client = Aws::SNS::Client.new
+    sns_client = Aws::SNS::Client.new(region: ENV['AWS_REGION'])
     sns_client.publish(phone_number: giver.contact, message: message)
   end
 end
