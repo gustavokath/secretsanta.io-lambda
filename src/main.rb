@@ -50,6 +50,8 @@ class SecretSanta
   def self.notify(event, giver, receiver_name)
     notifier = giver.sms? ? SMSNotificationService.new : EmailNotificationService.new
 
+    p "#{giver.name} --> #{receiver_name}"
+
     notifier.notify!(event, giver, receiver_name)
   end
 
