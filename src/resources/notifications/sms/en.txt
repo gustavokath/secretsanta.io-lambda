@@ -1,8 +1,2 @@
-Hi {giver_name},
-You've been invited to {event_name} on {event_date}!
-
-Your secret friend is: {receiver_name}.
-
-Have a great holiday season!
-
-secretsanta.gkath.com team!
+Hi {giver_name}, Your secret friend is: {receiver_name}.
+secretsanta.gkath.com

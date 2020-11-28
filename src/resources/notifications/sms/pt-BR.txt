@@ -1,8 +1,2 @@
-Olá {giver_name},
-Você está fezendo parte do {event_name} que acontecerá em {event_date}!
-
-Seu amigo secreto é: {receiver_name}.
-
-Tenha um feliz natal e um próspero ano novo!
-
-Equipe secretsanta.gkath.com
+Olá {giver_name}, seu amigo secreto é: {receiver_name}.
+secretsanta.gkath.com
